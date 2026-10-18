@@ -22,10 +22,10 @@ name: CI Docker
 
 on:
   pull_request:
-    branches: [master]
+    branches: [beta]
     types: [opened, synchronize, reopened]
   push:
-    branches: [master]
+    branches: [beta]
   workflow_dispatch:
 
 concurrency:
@@ -181,7 +181,7 @@ jobs:
 
           TAGS="${BASE_TAG}:${COMMIT:0:7}${{ matrix.tag }},ghcr.io/${BASE_TAG}:${COMMIT:0:7}${{ matrix.tag }}"
 
-          if [[ $GITHUB_REF == refs/heads/master ]]; then
+          if [[ $GITHUB_REF == refs/heads/beta ]]; then
             TAGS="${TAGS},${BASE_TAG}:latest${{ matrix.tag }},ghcr.io/${BASE_TAG}:latest${{ matrix.tag }}"
             TAGS="${TAGS},${BASE_TAG}:master${{ matrix.tag }},ghcr.io/${BASE_TAG}:master${{ matrix.tag }}"
           else
@@ -356,7 +356,7 @@ jobs:
           token: ${{ secrets.GH_BOT_TOKEN }}
 
       - name: Update Docker Hub Description
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/beta' }}
         uses: peter-evans/dockerhub-description@v4
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}

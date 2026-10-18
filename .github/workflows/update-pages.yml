@@ -4,14 +4,14 @@ name: Build GH-Pages
 on:
   pull_request:
     branches:
-      - master
+      - beta
     types:
       - opened
       - synchronize
       - reopened
   push:
     branches:
-      - master
+      - beta
   workflow_dispatch:
 
 concurrency:

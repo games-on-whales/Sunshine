@@ -9,7 +9,7 @@ name: common lint
 
 on:
   pull_request:
-    branches: [master]
+    branches: [beta]
     types: [opened, synchronize, reopened]
 
 concurrency:

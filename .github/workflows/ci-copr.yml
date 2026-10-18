@@ -4,7 +4,7 @@ name: CI Copr
 on:
   pull_request:
     branches:
-      - master
+      - beta
     types:
       - opened
       - synchronize

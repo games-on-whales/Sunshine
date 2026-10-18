@@ -3,7 +3,7 @@ name: localize
 
 on:
   push:
-    branches: [master]
+    branches: [beta]
     paths:  # prevents workflow from running unless these files change
       - '.github/workflows/localize.yml'
       - 'src/**'
@@ -85,7 +85,7 @@ jobs:
           commit-message: "chore(l10n): new babel updates"
           branch: localize/update
           delete-branch: true
-          base: master
+          base: beta
           title: "chore(l10n): new babel updates"
           body: |
             Update report
